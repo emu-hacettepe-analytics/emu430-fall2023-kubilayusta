@@ -28,5 +28,3 @@ Excel, Python, AutoCad, Matlab, Case Study, R, Quarto, Git
 # Hobbies
 
 Computer Games, Listen to Music, Hiking, Discussion, Intelligence Games, Fitness
-
-
