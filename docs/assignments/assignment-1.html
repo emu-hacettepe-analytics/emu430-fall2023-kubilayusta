@@ -208,10 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#a" id="toc-a" class="nav-link active" data-scroll-target="#a">(a)</a></li>
   <li><a href="#b-differences-between-r-and-python" id="toc-b-differences-between-r-and-python" class="nav-link" data-scroll-target="#b-differences-between-r-and-python">(b) Differences between R and Python</a></li>
   <li><a href="#c-organizing-data-set" id="toc-c-organizing-data-set" class="nav-link" data-scroll-target="#c-organizing-data-set">(c) Organizing Data Set</a></li>
-  <li><a href="#installing-na_example" id="toc-installing-na_example" class="nav-link" data-scroll-target="#installing-na_example">Installing Na_Example</a></li>
-  <li><a href="#datas-with-na" id="toc-datas-with-na" class="nav-link" data-scroll-target="#datas-with-na">Datas with NA</a></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#datas-with-zero" id="toc-datas-with-zero" class="nav-link" data-scroll-target="#datas-with-zero">Datas with ZERO</a></li>
   </ul>
 </nav>
 </nav>
@@ -311,9 +308,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="c-organizing-data-set" class="level2">
 <h2 class="anchored" data-anchor-id="c-organizing-data-set">(c) Organizing Data Set</h2>
-</section>
-<section id="installing-na_example" class="level1">
-<h1>Installing Na_Example</h1>
+<ul>
+<li><strong>Installing Na_Example</strong></li>
+</ul>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -326,9 +323,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>zero_example <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(na_example), <span class="dv">0</span>, na_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section>
-<section id="datas-with-na" class="level1">
-<h1>Datas with NA</h1>
+<ul>
+<li><strong>Datas with NA</strong></li>
+</ul>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -382,9 +379,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="section" class="level1">
 <h1></h1>
-</section>
-<section id="datas-with-zero" class="level1">
-<h1>Datas with ZERO</h1>
+<ul>
+<li><strong>Datas with ZERO</strong></li>
+</ul>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -932,7 +929,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## (c) Organizing Data Set</span></span>
 <span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a><span class="fu"># Installing Na_Example</span></span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Installing Na_Example**</span>
 <span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
@@ -945,7 +942,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>zero_example <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(na_example), <span class="dv">0</span>, na_example)</span>
 <span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="fu"># Datas with NA</span></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Datas with NA**</span>
 <span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(na_example) </span>
@@ -954,7 +951,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="fu"># </span></span>
 <span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="fu"># Datas with ZERO</span></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Datas with ZERO**</span>
 <span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(zero_example)</span>

@@ -89,7 +89,7 @@ My first assignment has four parts.
 
 ## (c) Organizing Data Set
 
-# Installing Na_Example
+-   **Installing Na_Example**
 
 ```{r}
 #| output: false
@@ -102,7 +102,7 @@ library(tidyverse)
 zero_example <- ifelse(is.na(na_example), 0, na_example)
 ```
 
-# Datas with NA
+-   **Datas with NA**
 
 ```{r}
 print(na_example) 
@@ -111,7 +111,7 @@ print(na_example)
 
 # 
 
-# Datas with ZERO
+-   **Datas with ZERO**
 
 ```{r}
 print(zero_example)
