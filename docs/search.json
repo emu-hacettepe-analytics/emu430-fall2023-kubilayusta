@@ -46,7 +46,7 @@
     "href": "assignments/assignment-1.html",
     "title": "Assignment 1",
     "section": "",
-    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has two parts."
+    "text": "# Assignment 1\nMy first assignment has four parts."
   },
   {
     "objectID": "assignments.html",
@@ -61,5 +61,47 @@
     "title": "My Blog",
     "section": "",
     "text": "This page is under construction.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#a",
+    "href": "assignments/assignment-1.html#a",
+    "title": "Assignment 1",
+    "section": "(a)",
+    "text": "(a)"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#b",
+    "href": "assignments/assignment-1.html#b",
+    "title": "Assignment 1",
+    "section": "(b)",
+    "text": "(b)"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#c",
+    "href": "assignments/assignment-1.html#c",
+    "title": "Assignment 1",
+    "section": "(c)",
+    "text": "(c)"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#d",
+    "href": "assignments/assignment-1.html#d",
+    "title": "Assignment 1",
+    "section": "(d)",
+    "text": "(d)"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#b-differences-between-r-and-python",
+    "href": "assignments/assignment-1.html#b-differences-between-r-and-python",
+    "title": "Assignment 1",
+    "section": "(b) Differences between R and Python",
+    "text": "(b) Differences between R and Python\n\nVariable Assignment\n\nR is using ” &lt;- ” operator for assignment.\n\nCode Example:\nx &lt;- c(1,2,3,4,5)\nsum_x &lt;- sum(x)\n\nPython is using ” = ” operator for assignment.\n\nCode Example:\nx = [1,2,3,4,5]\nsum_x = sum(x)\n\n\nFunction Definitions:\n\nFunctions are defined using the ” function ” keyword in R.\n\nCode Example:\nmean &lt;- function(arg)\n{\nsum(arg) / length(arg)\n}\n\nFunctions are defined using the ” def ” keyword in Python.\n\nCode Example:\ndef mean(arg):\n{\nsum(arg) / len(arg)\n}\n\n\nSyntax differences in code chunks:\n\nIn R we use ” { } ” syntax for code chunk.\n\nCode Example:\nif (number %% 2 == 0){\nprint(“Number is even”)\n} else {\nprint(“number is not even”)\n}\n\nIn Python we use ” : ” syntax for code chunk.\n\nCode Example:\nif (number %% 2 == 0):\nprint(“Number is even”)\nelse:\nprint(“number is not even”)"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#c-organizing-data-set",
+    "href": "assignments/assignment-1.html#c-organizing-data-set",
+    "title": "Assignment 1",
+    "section": "(c) Organizing Data Set",
+    "text": "(c) Organizing Data Set"
   }
 ]

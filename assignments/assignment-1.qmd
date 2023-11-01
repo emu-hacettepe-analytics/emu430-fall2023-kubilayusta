@@ -1,15 +1,120 @@
 ---
 title: "Assignment 1"
+author: Kubilay Usta
+format:
+  html:
+    code-tools: true
+    code-fold: true
 ---
 
-# Assignment 1
+\# Assignment 1
 
-```{r}
-1 + 1
-```
-
-My first assignment has two parts.
+My first assignment has four parts.
 
 ## (a)
 
-## (b)
+## (b) Differences between R and Python
+
+1.  **Variable Assignment**
+
+    -   **R is using " \<- " operator for assignment.**
+
+        -   **Code Example:**
+
+            x \<- c(1,2,3,4,5)
+
+            sum_x \<- sum(x)
+
+    -   **Python is using " = " operator for assignment.**
+
+        -   **Code Example:**
+
+            x = \[1,2,3,4,5\]
+
+            sum_x = sum(x)
+
+2.  **Function Definitions:**
+
+    -   **Functions are defined using the " function " keyword in R.**
+
+        -   **Code Example:**
+
+            mean \<- function(arg)
+
+            {
+
+            sum(arg) / length(arg)
+
+            }
+
+    -   **Functions are defined using the " def " keyword in Python.**
+
+        -   **Code Example:**
+
+            def mean(arg):
+
+            {
+
+            sum(arg) / len(arg)
+
+            }
+
+3.  **Syntax differences in code chunks:**
+
+    -   **In R we use " { } " syntax for code chunk.**
+
+        -   **Code Example:**
+
+            if (number %% 2 == 0){
+
+            print("Number is even")
+
+            } else {
+
+            print("number is not even")
+
+            }
+
+    -   **In Python we use " : " syntax for code chunk.**
+
+        -   **Code Example:**
+
+            if (number %% 2 == 0):
+
+            print("Number is even")
+
+            else:
+
+            print("number is not even")
+
+## (c) Organizing Data Set
+
+# Installing Na_Example
+
+```{r}
+#| output: false
+install.packages("dslabs", repos = " https://CRAN.R-project.org/package=dslabs")
+library("dslabs")
+data(package = "dslabs")
+list.files(system.file("script", package = "dslabs"))
+data("admissions")
+library(tidyverse)
+zero_example <- ifelse(is.na(na_example), 0, na_example)
+```
+
+# Datas with NA
+
+```{r}
+print(na_example) 
+
+```
+
+# 
+
+# Datas with ZERO
+
+```{r}
+print(zero_example)
+```
+
+\
