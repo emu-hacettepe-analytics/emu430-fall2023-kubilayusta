@@ -100,7 +100,7 @@ My first assignment has three parts.
 
             print("number is not even")
 
-## (c) Organizing Data Set
+## (c) **Organizing Data Set**
 
 -   **Installing Na_Example**
 
