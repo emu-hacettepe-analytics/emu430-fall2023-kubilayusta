@@ -20,7 +20,7 @@ My first assignment has three parts.
 ![](images/Python_vs._R_for_Data_Science__What_s_the_Difference__klxnwh.webp){width="754" height="275"}
 
 |               |                                                                           |               |                                                                   |
-|----------|---------------------------|----------|--------------------------|
+|---------------|---------------------------------------------------------------------------|---------------|-------------------------------------------------------------------|
 | **R**         | \- Programming language developed for statistical analysis                | **Python**    | \- It is a general-purpose programming language                   |
 |               | \- Developed in 1993 and used by statisticians, data miners, and analysts |               | \- Quickly becoming one of the most popular programming languages |
 |               | \- Used by companies like Uber, Facebook, and Google                      |               | \- Used by companies like Google, Facebook, and Netflix           |
