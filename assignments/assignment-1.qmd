@@ -11,7 +11,7 @@ format:
 
 My first assignment has three parts.
 
-## (a) **R vs Python \| Which is Better for Data Analysis?**
+# **(a) R vs Python \| Which is Better for Data Analysis?**
 
 ![](images/Python_vs._R_for_Data_Science__What_s_the_Difference__klxnwh.webp){width="754" height="275"}
 
@@ -26,7 +26,7 @@ My first assignment has three parts.
 | **The Code**  | \- Easy/Medium difficulty to pick up                                      | **The Code**  | \- Easy/Medium difficulty to pick up and learn                    |
 |               | \- Can be difficult to maintain                                           |               | \- Easier to write maintainable, large-scale code                 |
 
-## (b) **Differences between R and Python**
+# **(b) Differences between R and Python**
 
 1.  **Variable Assignment**
 
@@ -100,7 +100,7 @@ My first assignment has three parts.
 
             print("number is not even")
 
-## (c) **Organizing Data Set**
+# **(c) Organizing Data Set**
 
 -   **Installing Na_Example**
 
