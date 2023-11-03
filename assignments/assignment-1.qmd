@@ -9,7 +9,7 @@ format:
 
 \# Assignment 1
 
-My first assignment has four parts.
+My first assignment has three parts.
 
 ## (a) **R vs Python \| Which is Better for Data Analysis?**
 
@@ -26,7 +26,7 @@ My first assignment has four parts.
 | **The Code**  | \- Easy/Medium difficulty to pick up                                      | **The Code**  | \- Easy/Medium difficulty to pick up and learn                    |
 |               | \- Can be difficult to maintain                                           |               | \- Easier to write maintainable, large-scale code                 |
 
-## (b) Differences between R and Python
+## (b) **Differences between R and Python**
 
 1.  **Variable Assignment**
 
