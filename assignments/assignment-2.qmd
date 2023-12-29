@@ -1,9 +1,251 @@
 ---
 title: "Assignment 2"
+format:
+  html:
+    code-fold: true
+    code-tools: true
 ---
 
-# Assignment 2
+# (1) Getting URL
 
 ```{r}
-1 + 1
+#| code-fold: true
+url <- c("https://m.imdb.com/search/title/?title_type=feature&release_date=2010-01-01,2023-12-31&sort=release_date,asc&num_votes=2500,&country_of_origin=TR&count=250","https://m.imdb.com/search/title/?title_type=feature&release_date=,2009-12-31&sort=release_date,asc&num_votes=2500,&country_of_origin=TR&count=250")
+```
+
+# (2) Preparing of DataFrame
+
+```{r}
+#| code-fold: true
+#| output: false
+library(tidyverse)
+library(rvest)
+library(stringr)
+library(knitr)
+
+
+convert_time <- function(time_str) {
+  hours <- 0
+  minutes <- 0
+  
+  if (grepl("h", time_str)) {
+    time_components <- strsplit(time_str, "h|m")[[1]]
+    if (length(time_components) >= 1) {
+      hours <- as.numeric(time_components[1])
+    }
+    if (length(time_components) >= 2) {
+      minutes <- as.numeric(time_components[2])
+    }
+  } else {
+    minutes <- as.numeric(gsub("m", "", time_str))
+  }
+  
+  total_minutes <- hours * 60 + minutes
+  return(total_minutes)
+}
+#PART URL1
+
+data_html <- read_html(url[1])
+title_names1 <- data_html |> html_nodes('.ipc-title__text')
+title_names1 <- html_text(title_names1)
+title_names1 <- tail(head(title_names1,-1),-1)
+title_names1 <- str_split(title_names1, " ", n=2)
+title_names1 <- unlist(lapply(title_names1, function(x) {x[2]}))
+
+year1 <- data_html |> html_nodes(".dli-title-metadata-item:nth-child(1)")
+year1 <- as.numeric(html_text(year1))
+
+duration1 <- data_html |> html_nodes((".dli-title-metadata-item:nth-child(2)"))
+duration1 <- html_text(duration1)
+duration1 <- unlist(lapply(duration1, convert_time))
+
+rating1 <- data_html |> html_nodes(".ratingGroup--imdb-rating")
+rating1 <- html_text(rating1)
+rating1 <- as.numeric(str_extract(rating1, "\\d+\\.\\d+"))
+
+votes1 <- data_html |> html_nodes(".kRnqtn")
+votes1 <- html_text(votes1)
+votes1 <- as.numeric(gsub("\\D", "", votes1))
+
+#PART URL2
+
+data_html <- read_html(url[2])
+title_names2 <- data_html |> html_nodes('.ipc-title__text')
+title_names2 <- html_text(title_names2)
+title_names2 <- tail(head(title_names2,-1),-1)
+title_names2 <- str_split(title_names2, " ", n=2)
+title_names2 <- unlist(lapply(title_names2, function(x) {x[2]}))
+
+year2 <- data_html |> html_nodes(".dli-title-metadata-item:nth-child(1)")
+year2 <- as.numeric(html_text(year2))
+
+duration2 <- data_html |> html_nodes((".dli-title-metadata-item:nth-child(2)"))
+duration2 <- html_text(duration2)
+duration2 <- unlist(lapply(duration2, convert_time))
+
+rating2 <- data_html |> html_nodes(".ratingGroup--imdb-rating")
+rating2 <- html_text(rating2)
+rating2 <- as.numeric(str_extract(rating2, "\\d+\\.\\d+"))
+
+votes2 <- data_html |> html_nodes(".kRnqtn")
+votes2 <- html_text(votes2)
+votes2 <- as.numeric(gsub("\\D", "", votes2))
+
+Title <- c(title_names1,title_names2)
+Year <- c(year1,year2)
+Duration <- c(duration1,duration2)
+Rating <- c(rating1,rating2)
+Votes <- c(votes1,votes2)
+
+movie_data <- data.frame(
+  Title = Title,
+  Year = Year,
+  Duration = Duration,
+  Rating = Rating,
+  Votes = Votes
+)
+```
+
+# (3) Analytics of Movies
+
+## Part A
+
+```{r}
+#| code-fold: true
+movies <- movie_data %>% 
+  arrange(desc(Rating))
+
+```
+
+```{r}
+#| code-fold: true
+kable(
+  movies %>%
+    head(5),
+  caption = "Top 5 Movies",
+  col.names = c("Title", "Year", "Duration", "Rating", "Votes")
+)
+```
+
+```{r}
+#| code-fold: true
+kable(
+  movies %>%
+    head(5),
+  caption = "Bottom 5 Movies",
+  col.names = c("Title", "Year", "Duration", "Rating", "Votes")
+)
+```
+
+## Part B
+
+```{r}
+#| code-fold: true
+kable(
+  movie_data %>%
+    filter(Title == "Ölümlü Dünya" | Title == "Yedinci Kogustaki Mucize" | Title == "Dag II"),
+  caption = "My Best Three",
+  col.names = c("Title", "Year", "Duration", "Rating", "Votes")
+)
+```
+
+## Part C
+
+```{r}
+#| code-fold: true
+movie_data %>% 
+  group_by(Year) %>%
+  summarize(yearly_average = mean(Rating)) %>%
+  ggplot(aes(x = Year, y = yearly_average)) + geom_point() +
+  ggtitle("Yearly Rating Averages")
+```
+
+```{r}
+#| code-fold: true
+ggplot(movie_data, aes(x = factor(Year))) +
+  geom_bar(fill = "blue", color = "black") +
+  labs(x = "Year", y = "Number of Movies") +
+  ggtitle("Number of Movies Over the Years") +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90)
+  )
+```
+
+```{r}
+#| code-fold: true
+movie_data$Year <- as.factor(movie_data$Year)
+ggplot(movie_data, aes(x = Year, y = Rating, fill = factor(Year))) +
+  geom_boxplot(color = "black",width = 0.5) +
+  labs(x = "Year", y = "Rating") +
+  ggtitle("Box Plots of Movie Ratings Over the Years") +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90)
+  )
+```
+
+## Part D
+
+```{r}
+#| code-fold: true
+corr <- cor(movie_data$Votes, movie_data$Rating)
+cat("Correlation between Votes and Ratings:", corr)
+```
+
+## Part E
+
+```{r}
+#| code-fold: true
+corr <- cor(movie_data$Duration, movie_data$Rating)
+cat("Correlation between Votes and Ratings:", corr)
+```
+
+# (4) Turkish Movies in Top 1000 
+
+```{r}
+#| code-fold: true
+url <- c("https://m.imdb.com/search/title/?title_type=feature&sort=release_date,asc&num_votes=2500,&groups=top_1000&country_of_origin=TR&count=250")
+data_html <- read_html(url)
+title_names <- data_html |> html_nodes('.ipc-title__text')
+title_names <- html_text(title_names)
+title_names <- tail(head(title_names,-1),-1)
+title_names <- str_split(title_names, " ", n=2)
+title_names <- unlist(lapply(title_names, function(x) {x[2]}))
+
+year <- data_html |> html_nodes(".dli-title-metadata-item:nth-child(1)")
+year <- as.numeric(html_text(year))
+
+top_movies <- data.frame(
+  Title = title_names,
+  Year = year
+  )
+kable (
+  top_movies,
+  caption = "Turkish Movies in the Top 1000",
+)
+```
+
+```{r}
+#| code-fold: true
+movie_data <- movie_data %>% mutate(Year = as.numeric(Year))
+top_movies <- top_movies %>% mutate(Year = as.numeric(Year))
+
+movies_top2 <- movies %>%
+  inner_join(top_movies, by = c("Title", "Year")) %>%
+  arrange(desc(Rating))
+kable(
+  movies_top2,
+  caption = "Turkish Movies in the Top 1000 Full Table",
+  col.names = c("Title", "Year", "Duration", "Rating", "Votes")
+)
+```
+
+```{r}
+#| code-fold: true
+movie_data <- arrange(movie_data, desc(Rating))
+
+kable(
+  head(movie_data, 11),
+  caption = "Turkish Movies in the Top 11",
+  col.names = c("Title", "Year", "Duration", "Rating", "Votes")
+)
 ```

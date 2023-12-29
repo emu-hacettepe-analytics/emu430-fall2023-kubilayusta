@@ -18,7 +18,7 @@
     "href": "assignments/assignment-2.html",
     "title": "Assignment 2",
     "section": "",
-    "text": "Assignment 2\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\n Back to top"
+    "text": "Code\nurl &lt;- c(\"https://m.imdb.com/search/title/?title_type=feature&release_date=2010-01-01,2023-12-31&sort=release_date,asc&num_votes=2500,&country_of_origin=TR&count=250\",\"https://m.imdb.com/search/title/?title_type=feature&release_date=,2009-12-31&sort=release_date,asc&num_votes=2500,&country_of_origin=TR&count=250\")"
   },
   {
     "objectID": "about.html",
@@ -117,5 +117,40 @@
     "title": "Assignment 1",
     "section": "(a) R vs Python | Which is Better for Data Analysis?",
     "text": "(a) R vs Python | Which is Better for Data Analysis?\n\n\n\n\n\n\n\n\n\n\nR\n- Programming language developed for statistical analysis\nPython\n- It is a general-purpose programming language\n\n\n\n- Developed in 1993 and used by statisticians, data miners, and analysts\n\n- Quickly becoming one of the most popular programming languages\n\n\n\n- Used by companies like Uber, Facebook, and Google\n\n- Used by companies like Google, Facebook, and Netflix\n\n\nLibraries\n- Data Collection: Rcrawler, readxl, readr, RCurl\nLibraries\n- Data Collection: Pandas, Requests, BeautifulSoup\n\n\n\n- Data Wrangling/Exploration: Dplyr, sqldf, data.table, readr, tidyr\n\n- Data Wrangling/Exploration: Pandas, Numpy, Scipy\n\n\n\n- Data Visualization: Ggplot2, ggvis, plotly, Esquisse, Shiny\n\n- Data Visualization: Matplotlib, Seaborn, Plotly\n\n\nThe Code\n- Easy/Medium difficulty to pick up\nThe Code\n- Easy/Medium difficulty to pick up and learn\n\n\n\n- Can be difficult to maintain\n\n- Easier to write maintainable, large-scale code"
+  },
+  {
+    "objectID": "assignments/assignment-2.html#part-a",
+    "href": "assignments/assignment-2.html#part-a",
+    "title": "Assignment 2",
+    "section": "Part A",
+    "text": "Part A\n\n\nCode\nmovies &lt;- movie_data %&gt;% \n  arrange(desc(Rating))\n\n\n\n\nCode\nkable(\n  movies %&gt;%\n    head(5),\n  caption = \"Top 5 Movies\",\n  col.names = c(\"Title\", \"Year\", \"Duration\", \"Rating\", \"Votes\")\n)\n\n\n\nTop 5 Movies\n\n\nTitle\nYear\nDuration\nRating\nVotes\n\n\n\n\nHababam Sinifi\n1975\n87\n9.2\n42513\n\n\nCM101MMXI Fundamentals\n2013\n139\n9.1\n46996\n\n\nHababam Sinifi Sinifta Kaldi\n1975\n95\n8.9\n24370\n\n\nTosun Pasa\n1976\n90\n8.9\n24329\n\n\nSüt Kardesler\n1976\n80\n8.8\n20888\n\n\n\n\n\n\n\nCode\nkable(\n  movies %&gt;%\n    head(5),\n  caption = \"Bottom 5 Movies\",\n  col.names = c(\"Title\", \"Year\", \"Duration\", \"Rating\", \"Votes\")\n)\n\n\n\nBottom 5 Movies\n\n\nTitle\nYear\nDuration\nRating\nVotes\n\n\n\n\nHababam Sinifi\n1975\n87\n9.2\n42513\n\n\nCM101MMXI Fundamentals\n2013\n139\n9.1\n46996\n\n\nHababam Sinifi Sinifta Kaldi\n1975\n95\n8.9\n24370\n\n\nTosun Pasa\n1976\n90\n8.9\n24329\n\n\nSüt Kardesler\n1976\n80\n8.8\n20888"
+  },
+  {
+    "objectID": "assignments/assignment-2.html#part-b",
+    "href": "assignments/assignment-2.html#part-b",
+    "title": "Assignment 2",
+    "section": "Part B",
+    "text": "Part B\n\n\nCode\nkable(\n  movie_data %&gt;%\n    filter(Title == \"Ölümlü Dünya\" | Title == \"Yedinci Kogustaki Mucize\" | Title == \"Dag II\"),\n  caption = \"My Best Three\",\n  col.names = c(\"Title\", \"Year\", \"Duration\", \"Rating\", \"Votes\")\n)\n\n\n\nMy Best Three\n\n\nTitle\nYear\nDuration\nRating\nVotes\n\n\n\n\nDag II\n2016\n135\n8.2\n109866\n\n\nÖlümlü Dünya\n2018\n107\n7.6\n30267\n\n\nYedinci Kogustaki Mucize\n2019\n132\n8.2\n54161"
+  },
+  {
+    "objectID": "assignments/assignment-2.html#part-c",
+    "href": "assignments/assignment-2.html#part-c",
+    "title": "Assignment 2",
+    "section": "Part C",
+    "text": "Part C\n\n\nCode\nmovie_data %&gt;% \n  group_by(Year) %&gt;%\n  summarize(yearly_average = mean(Rating)) %&gt;%\n  ggplot(aes(x = Year, y = yearly_average)) + geom_point() +\n  ggtitle(\"Yearly Rating Averages\")\n\n\n\n\n\n\n\nCode\nggplot(movie_data, aes(x = factor(Year))) +\n  geom_bar(fill = \"blue\", color = \"black\") +\n  labs(x = \"Year\", y = \"Number of Movies\") +\n  ggtitle(\"Number of Movies Over the Years\") +\n  theme(legend.position = \"none\",\n        axis.text.x = element_text(angle = 90)\n  )\n\n\n\n\n\n\n\nCode\nmovie_data$Year &lt;- as.factor(movie_data$Year)\nggplot(movie_data, aes(x = Year, y = Rating, fill = factor(Year))) +\n  geom_boxplot(color = \"black\",width = 0.5) +\n  labs(x = \"Year\", y = \"Rating\") +\n  ggtitle(\"Box Plots of Movie Ratings Over the Years\") +\n  theme(legend.position = \"none\",\n        axis.text.x = element_text(angle = 90)\n  )"
+  },
+  {
+    "objectID": "assignments/assignment-2.html#part-d",
+    "href": "assignments/assignment-2.html#part-d",
+    "title": "Assignment 2",
+    "section": "Part D",
+    "text": "Part D\n\n\nCode\ncorr &lt;- cor(movie_data$Votes, movie_data$Rating)\ncat(\"Correlation between Votes and Ratings:\", corr)\n\n\nCorrelation between Votes and Ratings: 0.1307806"
+  },
+  {
+    "objectID": "assignments/assignment-2.html#part-e",
+    "href": "assignments/assignment-2.html#part-e",
+    "title": "Assignment 2",
+    "section": "Part E",
+    "text": "Part E\n\n\nCode\ncorr &lt;- cor(movie_data$Duration, movie_data$Rating)\ncat(\"Correlation between Votes and Ratings:\", corr)\n\n\nCorrelation between Votes and Ratings: 0.03343216"
   }
 ]
