@@ -217,6 +217,7 @@ There is no correlation between votes and ratings.
 
 ```{r}
 #| code-fold: true
+movie_data1 = movie_data
 url <- c("https://m.imdb.com/search/title/?title_type=feature&sort=release_date,asc&num_votes=2500,&groups=top_1000&country_of_origin=TR&count=250")
 data_html <- read_html(url)
 title_names <- data_html |> html_nodes('.ipc-title__text')
@@ -255,10 +256,10 @@ kable(
 
 ```{r}
 #| code-fold: true
-movie_data <- arrange(movie_data, desc(Rating))
+movie_data1 <- arrange(movie_data1, desc(Rating))
 
 kable(
-  head(movie_data, 11),
+  head(movie_data1, 11),
   caption = "Turkish Movies in the Top 11",
   col.names = c("Title", "Year", "Duration", "Rating", "Votes")
 )
