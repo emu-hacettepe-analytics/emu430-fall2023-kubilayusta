@@ -123,7 +123,7 @@
     "href": "assignments/assignment-2.html#part-a",
     "title": "Assignment 2",
     "section": "Part A",
-    "text": "Part A\n\n\nCode\nmovies &lt;- movie_data %&gt;% \n  arrange(desc(Rating))\n\n\n\n\nCode\nkable(\n  movies %&gt;%\n    head(5),\n  caption = \"Top 5 Movies\",\n  col.names = c(\"Title\", \"Year\", \"Duration\", \"Rating\", \"Votes\")\n)\n\n\n\nTop 5 Movies\n\n\nTitle\nYear\nDuration\nRating\nVotes\n\n\n\n\nHababam Sinifi\n1975\n87\n9.2\n42513\n\n\nCM101MMXI Fundamentals\n2013\n139\n9.1\n46996\n\n\nHababam Sinifi Sinifta Kaldi\n1975\n95\n8.9\n24370\n\n\nTosun Pasa\n1976\n90\n8.9\n24329\n\n\nSüt Kardesler\n1976\n80\n8.8\n20888\n\n\n\n\n\n\n\nCode\nkable(\n  movies %&gt;%\n    head(5),\n  caption = \"Bottom 5 Movies\",\n  col.names = c(\"Title\", \"Year\", \"Duration\", \"Rating\", \"Votes\")\n)\n\n\n\nBottom 5 Movies\n\n\nTitle\nYear\nDuration\nRating\nVotes\n\n\n\n\nHababam Sinifi\n1975\n87\n9.2\n42513\n\n\nCM101MMXI Fundamentals\n2013\n139\n9.1\n46996\n\n\nHababam Sinifi Sinifta Kaldi\n1975\n95\n8.9\n24370\n\n\nTosun Pasa\n1976\n90\n8.9\n24329\n\n\nSüt Kardesler\n1976\n80\n8.8\n20888"
+    "text": "Part A\n\n\nCode\nmovies &lt;- movie_data %&gt;% \n  arrange(desc(Rating))\n\n\nTop 5 movies based on ratings are shown below.\nI think it wouldn’t be wrong to say that whatever exists exists in the past.\n\n\nCode\nkable(\n  movies %&gt;%\n    head(5),\n  caption = \"Top 5 Movies\",\n  col.names = c(\"Title\", \"Year\", \"Duration\", \"Rating\", \"Votes\")\n)\n\n\n\nTop 5 Movies\n\n\nTitle\nYear\nDuration\nRating\nVotes\n\n\n\n\nHababam Sinifi\n1975\n87\n9.2\n42513\n\n\nCM101MMXI Fundamentals\n2013\n139\n9.1\n46996\n\n\nHababam Sinifi Sinifta Kaldi\n1975\n95\n8.9\n24370\n\n\nTosun Pasa\n1976\n90\n8.9\n24329\n\n\nSüt Kardesler\n1976\n80\n8.8\n20888\n\n\n\n\n\nThe bottom 5 is shown below.\nThe new ones are obvious\n\n\nCode\nkable(\n  movies %&gt;%\n    tail(5),\n  caption = \"Bottom 5 Movies\",\n  col.names = c(\"Title\", \"Year\", \"Duration\", \"Rating\", \"Votes\")\n)\n\n\n\nBottom 5 Movies\n\n\n\nTitle\nYear\nDuration\nRating\nVotes\n\n\n\n\n466\nCumali Ceber 2\n2018\n100\n1.2\n10229\n\n\n467\n15/07 Safak Vakti\n2021\n95\n1.2\n20608\n\n\n468\nMüjde\n2022\n48\n1.2\n9920\n\n\n469\nReis\n2017\n108\n1.0\n73973\n\n\n470\nCumali Ceber: Allah Seni Alsin\n2017\n100\n1.0\n39267"
   },
   {
     "objectID": "assignments/assignment-2.html#part-b",
@@ -137,20 +137,20 @@
     "href": "assignments/assignment-2.html#part-c",
     "title": "Assignment 2",
     "section": "Part C",
-    "text": "Part C\n\n\nCode\nmovie_data %&gt;% \n  group_by(Year) %&gt;%\n  summarize(yearly_average = mean(Rating)) %&gt;%\n  ggplot(aes(x = Year, y = yearly_average)) + geom_point() +\n  ggtitle(\"Yearly Rating Averages\")\n\n\n\n\n\n\n\nCode\nggplot(movie_data, aes(x = factor(Year))) +\n  geom_bar(fill = \"blue\", color = \"black\") +\n  labs(x = \"Year\", y = \"Number of Movies\") +\n  ggtitle(\"Number of Movies Over the Years\") +\n  theme(legend.position = \"none\",\n        axis.text.x = element_text(angle = 90)\n  )\n\n\n\n\n\n\n\nCode\nmovie_data$Year &lt;- as.factor(movie_data$Year)\nggplot(movie_data, aes(x = Year, y = Rating, fill = factor(Year))) +\n  geom_boxplot(color = \"black\",width = 0.5) +\n  labs(x = \"Year\", y = \"Rating\") +\n  ggtitle(\"Box Plots of Movie Ratings Over the Years\") +\n  theme(legend.position = \"none\",\n        axis.text.x = element_text(angle = 90)\n  )"
+    "text": "Part C\n\n\nCode\nmovie_data %&gt;% \n  group_by(Year) %&gt;%\n  summarize(yearly_average = mean(Rating)) %&gt;%\n  ggplot(aes(x = Year, y = yearly_average)) + geom_point() +\n  ggtitle(\"Yearly Rating Averages\")\n\n\n\n\n\nThe plot clearly show that ratings decrease over the years.\n\n\nCode\nggplot(movie_data, aes(x = factor(Year))) +\n  geom_bar(fill = \"blue\", color = \"black\") +\n  labs(x = \"Year\", y = \"Number of Movies\") +\n  ggtitle(\"Number of Movies Over the Years\") +\n  theme(legend.position = \"none\",\n        axis.text.x = element_text(angle = 90)\n  )\n\n\n\n\n\n\n\nCode\nmovie_data$Year &lt;- as.factor(movie_data$Year)\nggplot(movie_data, aes(x = Year, y = Rating, fill = factor(Year))) +\n  geom_boxplot(color = \"black\",width = 0.5) +\n  labs(x = \"Year\", y = \"Rating\") +\n  ggtitle(\"Box Plots of Movie Ratings Over the Years\") +\n  theme(legend.position = \"none\",\n        axis.text.x = element_text(angle = 90)\n  )"
   },
   {
     "objectID": "assignments/assignment-2.html#part-d",
     "href": "assignments/assignment-2.html#part-d",
     "title": "Assignment 2",
     "section": "Part D",
-    "text": "Part D\n\n\nCode\ncorr &lt;- cor(movie_data$Votes, movie_data$Rating)\ncat(\"Correlation between Votes and Ratings:\", corr)\n\n\nCorrelation between Votes and Ratings: 0.1307806"
+    "text": "Part D\n\n\nCode\ncorr &lt;- cor(movie_data$Votes, movie_data$Rating)\ncat(\"Correlation between Votes and Ratings:\", corr)\n\n\nCorrelation between Votes and Ratings: 0.1307806\n\n\nThe correlation between votes and ratings is weak."
   },
   {
     "objectID": "assignments/assignment-2.html#part-e",
     "href": "assignments/assignment-2.html#part-e",
     "title": "Assignment 2",
     "section": "Part E",
-    "text": "Part E\n\n\nCode\ncorr &lt;- cor(movie_data$Duration, movie_data$Rating)\ncat(\"Correlation between Votes and Ratings:\", corr)\n\n\nCorrelation between Votes and Ratings: 0.03343216"
+    "text": "Part E\n\n\nCode\ncorr &lt;- cor(movie_data$Duration, movie_data$Rating)\ncat(\"Correlation between Votes and Ratings:\", corr)\n\n\nCorrelation between Votes and Ratings: 0.03343216\n\n\nThere is no correlation between votes and ratings."
   }
 ]

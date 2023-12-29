@@ -117,6 +117,10 @@ movies <- movie_data %>%
 
 ```
 
+Top 5 movies based on ratings are shown below.
+
+I think it wouldn't be wrong to say that whatever exists exists in the past.
+
 ```{r}
 #| code-fold: true
 kable(
@@ -127,11 +131,15 @@ kable(
 )
 ```
 
+The bottom 5 is shown below.
+
+The new ones are obvious
+
 ```{r}
 #| code-fold: true
 kable(
   movies %>%
-    head(5),
+    tail(5),
   caption = "Bottom 5 Movies",
   col.names = c("Title", "Year", "Duration", "Rating", "Votes")
 )
@@ -159,6 +167,8 @@ movie_data %>%
   ggplot(aes(x = Year, y = yearly_average)) + geom_point() +
   ggtitle("Yearly Rating Averages")
 ```
+
+The plot clearly show that ratings decrease over the years.
 
 ```{r}
 #| code-fold: true
@@ -191,6 +201,8 @@ corr <- cor(movie_data$Votes, movie_data$Rating)
 cat("Correlation between Votes and Ratings:", corr)
 ```
 
+The correlation between votes and ratings is weak.
+
 ## Part E
 
 ```{r}
@@ -199,7 +211,9 @@ corr <- cor(movie_data$Duration, movie_data$Rating)
 cat("Correlation between Votes and Ratings:", corr)
 ```
 
-# (4) Turkish Movies in Top 1000 
+There is no correlation between votes and ratings.
+
+# (4) Turkish Movies in Top 1000
 
 ```{r}
 #| code-fold: true
@@ -249,3 +263,5 @@ kable(
   col.names = c("Title", "Year", "Duration", "Rating", "Votes")
 )
 ```
+
+Upon examining the table, it becomes apparent that the initial 11 highest-rated movies differ from those listed in our original data frame. A notable distinction lies in the release years of these films, with a conspicuous absence of older productions in the TOP 1000 IMDB list. It is probable that the inclusion criteria for this list prioritize movies released after a specific year.
