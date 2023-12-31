@@ -211,7 +211,7 @@ corr <- cor(movie_data$Duration, movie_data$Rating)
 cat("Correlation between Votes and Ratings:", corr)
 ```
 
-There is no correlation between votes and ratings.
+There is no correlation between duration and ratings.
 
 # (4) Turkish Movies in Top 1000
 
