@@ -1,6 +1,10 @@
 ---
 title: "About Me"
-sidebar: false 
+author: Kubilay Usta
+format:
+  html:
+    code-tools: true
+    code-fold: true
 ---
 
 -   Since I was a child, I've always loved math. It's made me good with numbers and helped me think analytically and solve problems. Throughout my university education, I have furthered my skills in various areas such as operations research, optimization and modeling, data analysis, and coding. Additionally, through academic and social responsibilities. I've developed strong teamwork, leadership, and problem-solving skills. As a talented and eager-to-learn engineering prospect, I am seeking an internship opportunity where I can continue to enhance my abilities.
@@ -21,30 +25,42 @@ None
 
 # Competencies
 
-Python
-
-Excell
-
-AutoCAD
-
-```` r
-```{r}
-# Gerekli kütüphaneleri yükleyin
+```{r, fig.width=10, fig.height=5}
+#| code-fold: true
 library(ggplot2)
 
 # Örnek veri
 data <- data.frame(
-  category = c("A", "B", "C", "D"),
-  value = c(3, 7, 2, 9)
+  Skill = c("Python", "R", "Excel", "SQL", "VBA", "AutoCad", "Matlab", "Minitab"),
+  Point = c("Intermediate", "Basic", "Advanced", "Basic", "Basic", "Intermediate", "Beginner", "Beginner")
 )
 
-# Bar grafiği oluşturma
-ggplot(data, aes(x = category, y = value)) +
-  geom_bar(stat = "identity", fill = "blue") +
+# 'Point' sütununu faktör olarak tanımlama ve sıralama
+data$Point <- factor(data$Point, levels = c("Beginner", "Basic", "Intermediate", "Advanced", "Expert"))
+
+# 'Skill' sütununu 'Point' sıralamasına göre sıralama
+data$Skill <- factor(data$Skill, levels = data$Skill[order(data$Point)])
+
+# ggplot ile grafik oluşturma
+ggplot(data, aes(x = Skill, y = Point, fill = Point)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  scale_fill_manual(values = c("Beginner" = "lightgrey", 
+                                "Basic" = "grey", 
+                                "Intermediate" = "blue", 
+                                "Advanced" = "orange", 
+                                "Expert" = "red")) +
+  scale_y_discrete(limits = c("Beginner", "Basic", "Intermediate", "Advanced", "Expert")) +
   theme_minimal() +
-  labs(title = "Dolu Bar Grafiği", x = "Kategori", y = "Değer")
+  theme(
+    axis.text.y = element_text(size = 12, face = "bold"), 
+    axis.text.x = element_text(size = 12, face = "bold"),
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    legend.position = "none"
+  ) +
+  labs(title = NULL, x = NULL, y = NULL)
+
 ```
-````
 
 # Hobbies
 
