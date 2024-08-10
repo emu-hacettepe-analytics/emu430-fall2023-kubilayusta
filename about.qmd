@@ -3,19 +3,17 @@ title: "About Me"
 sidebar: false 
 ---
 
+-   Since I was a child, I've always loved math. It's made me good with numbers and helped me think analytically and solve problems. Throughout my university education, I have furthered my skills in various areas such as operations research, optimization and modeling, data analysis, and coding. Additionally, through academic and social responsibilities. I've developed strong teamwork, leadership, and problem-solving skills. As a talented and eager-to-learn engineering prospect, I am seeking an internship opportunity where I can continue to enhance my abilities.
+
 # Education
 
 -   B.S., Industrial Engineering, Hacettepe University, Turkey, 2020 - ongoing.
 
-# Work Experience
+# Internships
 
-## Employements
+-   TUSAŞ
 
-None
-
-## Internships
-
-None
+-   HAVELSAN
 
 # Projects
 
@@ -23,13 +21,36 @@ None
 
 # Competencies
 
-Excel, Python, AutoCad, Matlab, Case Study, R, Quarto, Git
+Python
+
+Excell
+
+AutoCAD
+
+```` r
+```{r}
+# Gerekli kütüphaneleri yükleyin
+library(ggplot2)
+
+# Örnek veri
+data <- data.frame(
+  category = c("A", "B", "C", "D"),
+  value = c(3, 7, 2, 9)
+)
+
+# Bar grafiği oluşturma
+ggplot(data, aes(x = category, y = value)) +
+  geom_bar(stat = "identity", fill = "blue") +
+  theme_minimal() +
+  labs(title = "Dolu Bar Grafiği", x = "Kategori", y = "Değer")
+```
+````
 
 # Hobbies
 
 Computer Games, Listen to Music, Hiking, Discussion, Intelligence Games, Fitness
 
-# **CV**
+# CV
 
 You can see my CV from this link:
 
