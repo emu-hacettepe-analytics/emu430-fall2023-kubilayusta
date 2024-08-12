@@ -3,8 +3,8 @@ title: "Assignment 1"
 author: Kubilay Usta
 format:
   html:
-    code-tools: true
-    code-fold: true
+    code-tools: false
+    code-fold: false
 ---
 
 \# Assignment 1
@@ -20,7 +20,7 @@ My first assignment has three parts.
 ![](images/Python_vs._R_for_Data_Science__What_s_the_Difference__klxnwh.webp){width="754" height="275"}
 
 |               |                                                                           |               |                                                                   |
-|---------------|---------------------------------------------------------------------------|---------------|-------------------------------------------------------------------|
+|-------------|-------------------------|-------------|----------------------|
 | **R**         | \- Programming language developed for statistical analysis                | **Python**    | \- It is a general-purpose programming language                   |
 |               | \- Developed in 1993 and used by statisticians, data miners, and analysts |               | \- Quickly becoming one of the most popular programming languages |
 |               | \- Used by companies like Uber, Facebook, and Google                      |               | \- Used by companies like Google, Facebook, and Netflix           |
@@ -50,71 +50,90 @@ My first assignment has three parts.
 
         -   **Code Example:**
 
-            x \<- c(1,2,3,4,5)
 
-            sum_x \<- sum(x)
+            ```{r}
+            x <- c(1,2,3,4,5)
+
+            sum_x <- sum(x)
+            
+            print(sum_x)
+            ```
 
     -   **Python is using " = " operator for assignment.**
 
         -   **Code Example:**
 
-            x = \[1,2,3,4,5\]
+
+            ```{python, python.reticulate = FALSE}
+            x = [1,2,3,4,5]
 
             sum_x = sum(x)
-
+            
+            print(sum_x)
+            ```
 2.  **Function Definitions:**
 
     -   **Functions are defined using the " function " keyword in R.**
 
         -   **Code Example:**
-
-            mean \<- function(arg)
+            ```{r}
+            numbers <- c(1,2,3,4,5)
+            
+            mean <- function(arg)
 
             {
 
             sum(arg) / length(arg)
 
             }
+            
+            print(mean(numbers))
+            ```
+
+            
 
     -   **Functions are defined using the " def " keyword in Python.**
 
         -   **Code Example:**
 
+            ```{python, python.reticulate = FALSE}
+            numbers = [1,2,3,4,5]
+            
             def mean(arg):
-
-            {
-
-            sum(arg) / len(arg)
-
-            }
-
+              
+              return sum(arg) / len(arg)
+              
+            print(mean(numbers))
+            ```
 3.  **Syntax differences in code chunks:**
 
     -   **In R we use " { } " syntax for code chunk.**
 
         -   **Code Example:**
 
+            ```{r}
+            number <- 5
+            
             if (number %% 2 == 0){
-
             print("Number is even")
-
             } else {
-
-            print("number is not even")
-
+            print("Number is not even")
             }
+            ```
 
     -   **In Python we use " : " syntax for code chunk.**
 
         -   **Code Example:**
-
-            if (number %% 2 == 0):
-
-            print("Number is even")
-
+          
+            ```{python, python.reticulate = FALSE}
+            number = 5
+            
+            if number % 2 == 0:
+              print("Number is even")
+            
             else:
-
-            print("number is not even")
+              print("Number is not even")
+            ```
 
 # **(c) Organizing Data Set**
 
@@ -122,6 +141,8 @@ My first assignment has three parts.
 
 ```{r}
 #| output: false
+#| code-tools: true
+#| code-fold: true
 install.packages("dslabs", repos = " https://CRAN.R-project.org/package=dslabs")
 library("dslabs")
 data(package = "dslabs")
@@ -134,6 +155,8 @@ zero_example <- ifelse(is.na(na_example), 0, na_example)
 -   **Datas with NA**
 
 ```{r}
+#| code-tools: true
+#| code-fold: true
 print(na_example) 
 
 ```
