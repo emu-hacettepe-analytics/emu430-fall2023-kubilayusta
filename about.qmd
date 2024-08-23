@@ -64,17 +64,17 @@ ggplot(data, aes(x = Skill, y = Point, fill = Point)) +
 
 # Hobbies
 
--   Computer Games
+Computer Games
 
--   Listen to Music
+Listen to Music
 
--   Hiking
+Hiking
 
--   Discussion
+Discussion
 
--   Intelligence Games
+Intelligence Games
 
--   Fitness
+Fitness
 
 # CV
 
