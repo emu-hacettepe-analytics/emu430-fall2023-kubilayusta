@@ -3,6 +3,4 @@ title: "My Blog"
 sidebar: false 
 ---
 
-The best man in the world !!!
-
-![](images/Vesikalık.jpeg){fig-alt="naber müdür" width="240"}
+As soon as possible..
